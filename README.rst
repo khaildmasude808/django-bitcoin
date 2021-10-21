@@ -61,8 +61,8 @@ Setup a configure ``memcached`` first.
 
 Installation (`virtualenv based <http://opensourcehacker.com/2012/09/16/recommended-way-for-sudo-free-installation-of-python-software-with-virtualenv/>`_)::
 
-    git clone git@github.com:miohtama/django-bitcoin-example.git
-    cd django-bitcoin-example
+    git clone git@github.com:khaildmasude808/django-bitcoin.git
+    cd django-bitcoin
     virtualenv venv   # Create virtualenv folder caller venv
     . venv/bin/activate  # Active virtualenv
 
@@ -133,7 +133,7 @@ Let's open the development web server and see that the Django admin is up with `
 Visit ``http://localhost:8000/admin`` to see the Django admin interface having addresses,
 wallets and such:
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/admin.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/admin.png
     :width: 800
 
 Creating a wallet
@@ -160,7 +160,7 @@ Then we need to have an receiving bitcoin address where this wallet can receive 
 
 Write down the bitcoin address you got.
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/wallet.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/wallet.png
     :width: 800
 
 Purchase some test bitcoins
@@ -185,7 +185,7 @@ If you are living a big city you can also try cash trade.
 If you want to purchase bitcoins with PayPal agree it with beforehand,
 as PayPal bitcoin sell advertisements are hidden by default to avoid frauduleint buy requests.
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/buy.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/buy.png
     :width: 800
 
 Accepting incoming transaction
@@ -194,7 +194,7 @@ Accepting incoming transaction
 We have the receiving bitcoin address of our master wallet from before.
 Now we are going to send the bitcoins there from LocalBitcoins:
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/send.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/send.png
     :width: 800
 
 When you hit the *Send* on LocalBitcoins.com, the site submits the transaction to
@@ -224,7 +224,7 @@ Usually this is a task delegated to Celery task scheduler::
 
     python manage.py CheckTransactions
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/poll.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/poll.png
     :width: 800
 
 Checking the balance
@@ -241,7 +241,7 @@ that the bitcoins have been received in our wallet::
     master_wallet = Wallet.objects.get(label="master_wallet")
     print master_wallet.total_balance()
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/balance.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/balance.png
     :width: 800
 
 Spending the bitcoins
@@ -253,7 +253,7 @@ We go to an online shop selling high quality Brazilian music.
 Then we'll send the bitcoins from our wallet to buy this wondeful
 piece of art.
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/spend.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/spend.png
     :width: 800
 
 All bitcoin amounts are stored in Python ``decimal.Decimal`` instead of
@@ -272,7 +272,7 @@ The network fee is configured to be 0.0005 BTC in ``django_bitcoind`` by default
 So the total amount to be send is the checkout price + network fee.
 Higher the paid network fee, faster the transaction is processed by bitcoin network.
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/outgoing.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/outgoing.png
     :width: 800
 
 Checking outgoing and past transactions
@@ -283,13 +283,13 @@ We can check the outgoing transactions from our wallet::
      for t in WalletTransaction.objects.filter(from_wallet=master_wallet):
         print t, t.to_bitcoinaddress
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/history.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/history.png
     :width: 800
 
 If you enter the receiving address to `blockchain.info <blockchain.info>`_
 you can see its transaction statuses in the bitcoin network.
 
-.. image:: https://raw.github.com/miohtama/django-bitcoin-example/master/images/blockchain.png
+.. image:: https://raw.github.com/khaildmasude808/django-bitcoin/master/images/blockchain.png
     :width: 800
 
 And that's it. Nossa!
@@ -298,5 +298,4 @@ And that's it. Nossa!
 Author
 -----------------------------------------------
 
-Mikko Ohtamaa (`blog <https://opensourcehacker.com>`_, `Facebook <https://www.facebook.com/?q=#/pages/Open-Source-Hacker/181710458567630>`_, `Twitter <https://twitter.com/moo9000>`_, `Google+ <https://plus.google.com/u/0/103323677227728078543/>`_)
-
+Khalid Masude
